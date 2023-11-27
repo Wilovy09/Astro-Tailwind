@@ -11,23 +11,25 @@ const { id, img, success, flightNumber, details } = Astro.props
 const LaunchStatus = success ? 'Success' : 'Failure'
 ---
 
-<!-- Create By Joker Banny -->
-<div class="flex items-center justify-center">
-    <div class="mx-auto px-5">
-        <div class="max-w-xs cursor-pointer rounded-lg bg-gray-800 p-2 shadow duration-150 hover:scale-105 hover:shadow-md">
-            <img class="w-full rounded-lg object-cover object-center" src={ img } alt="" />
-            <p class="my-4 pl-4 font-bold text-white text-center">Vuelo #{flightNumber}</p>
-            
-            <p class:list={[
-                    'text-xs font-semibold mr-2 px-2.5 py-0.5 rounded text-center w-20',
-                    {
-                        'bg-green-400 text-green-900': success,
-                        'bg-red-400 text-red-900': !success
-                    }
-                ]}>{LaunchStatus}</p>
-
-            <p class="my-4 pl-4 font-bold text-white">#{id}</p>
-            <p class="my-4 pl-4 font-bold text-white">Detalles:<br><br>{details}</p>
+<a href={`/launch/${id}`}>
+    <div class="flex items-center justify-center">
+        <div class="mx-auto px-5">
+            <div class="max-w-xs cursor-pointer rounded-lg bg-gray-800 p-2 shadow duration-150 hover:scale-105 hover:shadow-md">
+                <img class="w-full rounded-lg object-cover object-center" src={ img } alt="" />
+                <p class="my-4 pl-4 font-bold text-white text-center">Vuelo #{flightNumber}</p>
+                
+                <p class:list={[
+                        'text-xs font-semibold mr-2 px-2.5 py-0.5 rounded text-center w-20',
+                        {
+                            'bg-green-400 text-green-900': success,
+                            'bg-red-400 text-red-900': !success
+                        }
+                    ]}>{LaunchStatus}
+                </p>
+    
+                <p class="my-4 pl-4 font-bold text-white">#{id}</p>
+                <p class="my-4 pl-4 font-bold text-white">Detalles:<br><br>{details}</p>
+            </div>
         </div>
     </div>
-</div>
+</a>

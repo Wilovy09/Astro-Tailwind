@@ -1,0 +1,21 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from '../../layouts/Layout.astro'
+import { getLaunches , getLauncheBy } from '../../services/spacex'
+
+export const prerender =false
+
+const { id } = Astro.params
+
+let launch
+if (id){
+    launch = getLauncheBy({id})
+}
+
+---
+<Layout title={`Lanzamiento ${id}`}>
+    <article class="text-white">
+        <!-- <img src={launch.links.path.small} alt=""> -->
+        <h1>Lanzamiento {id}</h1> 
+    </article>
+</Layout>
